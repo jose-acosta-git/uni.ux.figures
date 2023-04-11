@@ -6,7 +6,7 @@ const canvasHeight = canvas.height;
 
 const forms = [];
 const forms_max = 30;
-const forms_size = 50;
+const forms_size = 100;
 
 for (i = 0; i < forms_max; i++) {
     addForm(i < (forms_max / 2));
