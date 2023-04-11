@@ -8,10 +8,33 @@ const forms = [];
 const forms_max = 30;
 const forms_size = 100;
 
-for (i = 0; i < forms_max; i++) {
-    addForm(i < (forms_max / 2));
+init();
+
+function init() {
+    for (i = 0; i < forms_max; i++) {
+        addForm(i < (forms_max / 2));
+    }
+    draw();
+    canvas.addEventListener('mousedown', function(e) {
+        console.log("canvas clicked");
+        forms.forEach(form => {
+            if (e.offsetX >= form.posX && e.offsetX <= form.posX + form.width &&
+            e.offsetY >= form.posY && e.offsetY <= form.posY + form.height) {
+                console.log("form clicked")
+                canvas.addEventListener('mousemove', dragForm(form, e));
+            }
+        });
+    });
 }
-draw();
+
+function dragForm(form, e) {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    
+    form.posX = e.offsetX;
+    form.posY = e.offsetY;
+
+    draw();    
+}
 
 function addForm(style) {
     let posX = Math.round(Math.random() * canvasWidth);
