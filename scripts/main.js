@@ -21,6 +21,33 @@ function init() {
     listenClick();
     listenDrag();
     listenUnClick();
+    listenKeys();
+}
+
+function listenKeys() {
+    window.addEventListener('keydown', function(e) {
+        if ( (lastSelected != null) && (e.key == 'ArrowDown' || e.key == 'ArrowUp' || e.key == 'ArrowLeft' || e.key == 'ArrowRight'))
+            moveForm(e.key);
+    });
+}
+
+function moveForm(key) {
+    ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+    switch (key) {
+        case 'ArrowDown':
+            lastSelected.posY += 10;
+            break;
+        case 'ArrowUp':
+            lastSelected.posY -= 10;
+            break;
+        case 'ArrowLeft':
+            lastSelected.posX -= 10;
+            break;
+        default:
+            lastSelected.posX += 10;
+            break;
+    }
+    draw();
 }
 
 function listenClick() {
@@ -37,7 +64,7 @@ function listenClick() {
 function listenDrag() {
     canvas.addEventListener('mousemove', function(e) {
         if (clicked != null)
-            dragForm(clicked, e);
+            dragForm(e);
     });
 }
 
@@ -47,11 +74,11 @@ function listenUnClick() {
     });
 }
 
-function dragForm(form, e) {
+function dragForm(e) {
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
     
-    form.posX = e.offsetX;
-    form.posY = e.offsetY;
+    clicked.posX = e.offsetX;
+    clicked.posY = e.offsetY;
 
     draw();
 }
