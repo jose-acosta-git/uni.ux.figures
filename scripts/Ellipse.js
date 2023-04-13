@@ -14,18 +14,12 @@ class Ellipse extends Form {
     }
 
     isClicked(x, y) {
-
-        //return (x >= this.posX && x <= this.posX + this.width && y >= this.posY && y <= this.posY + this.height);
-
         const dx = (x -this.posX);
         const dy = (y - this.posY);
         const rx = (this.width / 2);
         const ry = (this.height / 2);
 
-        return ( ( (dx*dx) / (rx*rx) <=1) && ( (dy*dy) / (ry*ry) <=1) );
-
-        //return ( ( (dx*dx) / (rx*rx) + (dy*dy) * (ry*ry) ) <= 1 );
-        
+        return ( ( (dx*dx) / (rx*rx) <=1) && ( (dy*dy) / (ry*ry) <=1) );      
     }
 
 }

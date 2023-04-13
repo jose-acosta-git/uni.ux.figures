@@ -9,10 +9,13 @@ class Form {
         this.context = context;
     }
 
+    //Dibuja la figura
     draw(){}
 
+    //Devuelve true si las coordenadas del mouse coinciden con las de la figura
     isClicked(){}
 
+    //Cambia las coordenadas de la figura
     moveTo(posX, posY) {
         this.posX = posX;
         this.posY = posY;
