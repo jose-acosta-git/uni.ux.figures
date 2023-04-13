@@ -11,4 +11,8 @@ class Rect extends Form {
         this.context.fill();
     }
 
+    isClicked(x, y) {
+        return (x >= this.posX && x <= this.posX + this.width && y >= this.posY && y <= this.posY + this.height);
+    }
+
 }

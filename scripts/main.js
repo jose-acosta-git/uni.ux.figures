@@ -8,6 +8,9 @@ const forms = [];
 const forms_max = 30;
 const forms_size = 100;
 
+let clicked = null;
+let lastSelected = null;
+
 init();
 
 function init() {
@@ -15,15 +18,32 @@ function init() {
         addForm(i < (forms_max / 2));
     }
     draw();
+    listenClick();
+    listenDrag();
+    listenUnClick();
+}
+
+function listenClick() {
     canvas.addEventListener('mousedown', function(e) {
-        console.log("canvas clicked");
-        forms.forEach(form => {
-            if (e.offsetX >= form.posX && e.offsetX <= form.posX + form.width &&
-            e.offsetY >= form.posY && e.offsetY <= form.posY + form.height) {
-                console.log("form clicked")
-                canvas.addEventListener('mousemove', dragForm(form, e));
+        for (let i = 0; i < forms.length; i++) {
+            if (forms[i].isClicked(e.offsetX, e.offsetY)) {
+                clicked = forms[i];
+                lastSelected = clicked;
             }
-        });
+        }
+    });
+}
+
+function listenDrag() {
+    canvas.addEventListener('mousemove', function(e) {
+        if (clicked != null)
+            dragForm(clicked, e);
+    });
+}
+
+function listenUnClick() {
+    canvas.addEventListener('mouseup', function (e) {
+        clicked = null;
     });
 }
 
@@ -33,7 +53,7 @@ function dragForm(form, e) {
     form.posX = e.offsetX;
     form.posY = e.offsetY;
 
-    draw();    
+    draw();
 }
 
 function addForm(style) {
