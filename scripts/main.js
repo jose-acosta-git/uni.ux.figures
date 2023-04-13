@@ -5,8 +5,8 @@ const canvasWidth = canvas.width;
 const canvasHeight = canvas.height;
 
 const forms = [];
-const forms_max = 30;
-const forms_size = 100;
+const forms_max = 80;
+const forms_size = 75;
 
 let clicked = null;
 let lastSelected = null;
