@@ -89,10 +89,10 @@ function addForm(style) {
     let color = randomRGBA();
 
     if (style) {
-        const rect = new Rect(posX, posY, Math.round(Math.random() * forms_size), Math.round(Math.random() * forms_size), color, ctx, false);
+        const rect = new Rect(posX, posY, Math.round(Math.random() * forms_size), Math.round(Math.random() * forms_size), color, ctx);
         forms.push(rect);
     } else {
-        const ellipse = new Ellipse(posX, posY, Math.round(Math.random() * forms_size), Math.round(Math.random() * forms_size), color, ctx, false);
+        const ellipse = new Ellipse(posX, posY, Math.round(Math.random() * forms_size), Math.round(Math.random() * forms_size), color, ctx);
         forms.push(ellipse);
     }
 }
@@ -106,7 +106,7 @@ function randomRGBA() {
 }
 
 function draw() {
-    const rect = new Rect(0, 0, canvasWidth-1, canvasHeight-1, 'rgba(245, 245, 245, 255)' , ctx, true);
+    const rect = new Rect(0, 0, canvasWidth-1, canvasHeight-1, 'rgba(245, 245, 245, 255)' , ctx);
     rect.draw();
     
     for (let i = 0; i < forms_max; i++) {

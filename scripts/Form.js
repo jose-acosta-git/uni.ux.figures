@@ -1,13 +1,12 @@
 class Form {
 
-    constructor(posX, posY, width, height, fill, context, style) {
+    constructor(posX, posY, width, height, fill, context) {
         this.posX = posX;
         this.posY = posY;
         this.width = width;
         this.height = height;
         this.fill = fill; 
         this.context = context;
-        this.style = style;
     }
 
     draw(){}
@@ -17,9 +16,5 @@ class Form {
     moveTo(posX, posY) {
         this.posX = posX;
         this.posY = posY;
-    }
-
-    selected(style) {
-        this.style = style;
     }
 }

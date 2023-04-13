@@ -1,7 +1,7 @@
 class Rect extends Form {
 
-    constructor(posX, posY, width, height, fill, context, style) {
-        super(posX, posY, width, height, fill, context, style);
+    constructor(posX, posY, width, height, fill, context) {
+        super(posX, posY, width, height, fill, context);
     }
 
     draw() {
