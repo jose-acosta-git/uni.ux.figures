@@ -1,5 +1,5 @@
-# Trabajo Practico Entregable N1
+# Course Assignment N1
 
-### Acosta Jose
+## Move canvas figures
 
-Utilizar el click izquierdo para mover las figuras y las flechas del teclado para mover la última figura seleccionada.
+Use the left click to move the shapes and the keyboard arrows to move the last selected figure.
